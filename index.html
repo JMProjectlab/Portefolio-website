@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jimmy Mieuzet — Applications & Créations</title>
+<meta name="description" content="Découvrez mes applications et proposez-moi votre idée : je la développe gratuitement.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="#top" class="logo">Jimmy<span>.dev</span></a>
+    <nav>
+      <a href="#apps">Mes Applications</a>
+      <a href="#comment">Comment ça marche</a>
+      <a href="#demande">Proposer une app</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="container hero-inner">
+      <p class="eyebrow">Développeur d'applications</p>
+      <h1>Je crée des applications.<br>Et si la prochaine, c'était <span>la vôtre</span> ?</h1>
+      <p class="lead">
+        Je conçois et développe des applications web et mobiles. Vous avez une idée
+        d'application mais pas les compétences pour la coder ? Envoyez-moi votre demande,
+        je la réalise <strong>gratuitement</strong>.
+      </p>
+      <div class="hero-actions">
+        <a href="#demande" class="btn btn-primary">Proposer mon idée</a>
+        <a href="#apps" class="btn btn-ghost">Voir mes applications</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="banner">
+    <div class="container">
+      <p>💡 Vous avez une idée d'app ? Je la développe gratuitement — sans engagement.</p>
+    </div>
+  </section>
+
+  <section id="apps" class="section">
+    <div class="container">
+      <h2>Mes Applications</h2>
+      <p class="section-sub">Un aperçu des projets que j'ai créés récemment.</p>
+
+      <div class="apps-grid">
+
+        <article class="app-card">
+          <div class="app-icon">📋</div>
+          <h3>Nom de l'application</h3>
+          <p>Courte description de ce que fait l'application et le problème qu'elle résout.</p>
+          <div class="app-tags"><span>Web</span><span>Productivité</span></div>
+          <a href="#" class="app-link">Voir le projet →</a>
+        </article>
+
+        <article class="app-card">
+          <div class="app-icon">📱</div>
+          <h3>Nom de l'application</h3>
+          <p>Courte description de ce que fait l'application et le problème qu'elle résout.</p>
+          <div class="app-tags"><span>Mobile</span><span>Utilitaire</span></div>
+          <a href="#" class="app-link">Voir le projet →</a>
+        </article>
+
+        <article class="app-card">
+          <div class="app-icon">📊</div>
+          <h3>Nom de l'application</h3>
+          <p>Courte description de ce que fait l'application et le problème qu'elle résout.</p>
+          <div class="app-tags"><span>Web</span><span>Gestion</span></div>
+          <a href="#" class="app-link">Voir le projet →</a>
+        </article>
+
+        <article class="app-card app-card--placeholder">
+          <div class="app-icon">✨</div>
+          <h3>La prochaine, c'est vous ?</h3>
+          <p>Cet emplacement pourrait présenter l'application que vous allez me proposer.</p>
+          <a href="#demande" class="app-link">Proposer mon idée →</a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="comment" class="section section-alt">
+    <div class="container">
+      <h2>Comment ça marche</h2>
+      <p class="section-sub">Trois étapes simples pour voir votre idée prendre vie.</p>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <h3>Vous décrivez votre idée</h3>
+          <p>Remplissez le formulaire ci-dessous avec le maximum de détails sur l'application que vous imaginez.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <h3>On en discute</h3>
+          <p>Je vous recontacte par email pour affiner le besoin et cadrer le projet ensemble.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <h3>Je développe, gratuitement</h3>
+          <p>Je réalise votre application sans frais. Une belle occasion pour vous comme pour moi de créer quelque chose d'utile.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="demande" class="section">
+    <div class="container form-section">
+      <div class="form-intro">
+        <h2>Proposez votre application</h2>
+        <p class="section-sub">
+          Décrivez votre projet, je vous recontacte pour en discuter. Envoi direct
+          par email, aucune inscription nécessaire.
+        </p>
+      </div>
+
+      <form id="request-form" class="request-form">
+        <div class="form-row">
+          <label for="name">Votre nom</label>
+          <input type="text" id="name" name="name" placeholder="Jean Dupont" required>
+        </div>
+
+        <div class="form-row">
+          <label for="email">Votre email</label>
+          <input type="email" id="email" name="email" placeholder="vous@email.com" required>
+        </div>
+
+        <div class="form-row">
+          <label for="app-name">Nom de votre projet (optionnel)</label>
+          <input type="text" id="app-name" name="app-name" placeholder="Ex : Application de suivi de dépenses">
+        </div>
+
+        <div class="form-row">
+          <label for="description">Décrivez votre idée d'application</label>
+          <textarea id="description" name="description" rows="6" placeholder="À quoi sert l'application ? Qui l'utilisera ? Quelles sont les fonctionnalités principales ?" required></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-full">Envoyer ma demande</button>
+        <p id="form-note" class="form-note"></p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p>&copy; <span id="year"></span> Jimmy Mieuzet — Toutes les applications présentées sont gratuites à proposer.</p>
+    <a href="mailto:jimmy.mieuzet@gmail.com">jimmy.mieuzet@gmail.com</a>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -72,10 +72,12 @@ nav a:hover { color: var(--line); }
 .app-card:hover { transform: translateY(-4px); border-color: var(--line); }
 .app-card--placeholder { border-style: dashed; display: flex; flex-direction: column; justify-content: center; }
 .app-icon { font-size: 2rem; margin-bottom: 14px; }
+.app-icon-img { width: 48px; height: 48px; border-radius: 12px; margin-bottom: 14px; display: block; }
 .app-card p { color: var(--text-dim); font-size: 0.95rem; }
 .app-tags { display: flex; gap: 8px; margin: 14px 0; flex-wrap: wrap; }
 .app-tags span { background: rgba(44,134,201,0.14); color: var(--line); font-size: 0.75rem; padding: 4px 10px; border-radius: 999px; }
 .app-link { color: var(--line); font-weight: 600; font-size: 0.9rem; }
+.app-status { color: var(--text-dim); font-weight: 600; font-size: 0.85rem; font-style: italic; }
 
 .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 32px; }
 .step { text-align: center; padding: 0 12px; }

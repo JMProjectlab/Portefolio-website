@@ -232,11 +232,19 @@ nav a:hover { opacity: 1; }
 }
 .section-alt .app-card { background: var(--surface); }
 
+/* Filet posé sur l'icône (outline, et non border, pour ne pas rogner l'image) :
+   sans lui, une icône dont le fond approche celui de la carte perd ses bords —
+   le fond encre en thème sombre, le fond crème de Vélo Brière en thème clair. */
 .app-icon-img {
   width: 88px;
   height: 88px;
   border-radius: 20px;
   display: block;
+  outline: 1px solid rgba(0, 0, 0, 0.09);
+  outline-offset: -1px;
+}
+@media (prefers-color-scheme: dark) {
+  .app-icon-img { outline-color: rgba(255, 255, 255, 0.13); }
 }
 .app-icon { font-size: 56px; line-height: 1; }
 

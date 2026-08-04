@@ -5,20 +5,24 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>JMprojectlab — Applications & Créations</title>
 <meta name="description" content="Découvrez mes applications et proposez-moi votre idée : je la développe gratuitement.">
-<link rel="icon" type="image/svg+xml" href="brand/logo-mark.svg">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+<link rel="icon" type="image/svg+xml" href="brand/logo-mark-ink.svg">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header class="site-header">
-  <div class="container header-inner">
-    <a href="#top" class="logo">
-      <img src="brand/logo-lockup.svg" alt="JMprojectlab" height="40">
+  <div class="header-inner">
+    <a href="#top" class="logo" aria-label="JMprojectlab, accueil">
+      <img class="logo-light" src="brand/logo-mark-ink.svg" alt="">
+      <img class="logo-dark" src="brand/logo-mark-white.svg" alt="">
+      <span class="logo-word">projectlab</span>
     </a>
     <nav>
-      <a href="#apps">Mes Applications</a>
+      <a href="#apps">Applications</a>
       <a href="#comment">Comment ça marche</a>
-      <a href="#demande">Proposer une app</a>
+      <a href="#demande">Proposer une idée</a>
     </nav>
   </div>
 </header>
@@ -26,63 +30,66 @@
 <main id="top">
 
   <section class="hero">
-    <div class="container hero-inner">
-      <p class="eyebrow">Développeur d'applications</p>
-      <h1>Je crée des applications.<br>Et si la prochaine, c'était <span>la vôtre</span> ?</h1>
+    <div class="container">
+      <h1>Une idée d'application ?<br>Je la développe.</h1>
       <p class="lead">
-        Je conçois et développe des applications web et mobiles. Vous avez une idée
-        d'application mais pas les compétences pour la coder ? Envoyez-moi votre demande,
-        je la réalise <strong>gratuitement</strong>.
+        Je conçois et développe des applications iOS et web. Décrivez-moi votre
+        projet : je le réalise gratuitement.
       </p>
       <div class="hero-actions">
-        <a href="#demande" class="btn btn-primary">Proposer mon idée</a>
-        <a href="#apps" class="btn btn-ghost">Voir mes applications</a>
+        <a href="#demande" class="link-arrow">Proposer mon idée</a>
+        <a href="#apps" class="link-arrow">Voir les applications</a>
       </div>
     </div>
   </section>
 
-  <section class="banner">
+  <section class="statement">
     <div class="container">
-      <p>💡 Vous avez une idée d'app ? Je la développe gratuitement — sans engagement.</p>
+      <p>Gratuit.<br><span class="free">Vraiment gratuit.</span></p>
+      <p class="sub">
+        Pas de devis, pas de facture, aucun engagement. Juste l'envie de créer
+        des applications utiles — et de les créer avec vous.
+      </p>
     </div>
   </section>
 
   <section id="apps" class="section">
-    <div class="container">
-      <h2>Mes Applications</h2>
-      <p class="section-sub">Un aperçu des projets que j'ai créés récemment.</p>
+    <div class="container-wide">
+      <div class="section-head">
+        <h2>Les applications</h2>
+        <p>Ce qui est sorti de l'atelier jusqu'ici.</p>
+      </div>
 
       <div class="apps-grid">
 
         <article class="app-card">
           <img class="app-icon-img" src="apps/scornade-icon.png" alt="Icône de Scornade">
           <h3>Scornade</h3>
-          <p>Un compteur de scores universel pour plus de 20 jeux — cartes, société, dés, précision : Belote, Coinche, Tarot, Yam's, Mölkky, Fléchettes… Configuration de partie, saisie en direct, historique et statistiques.</p>
+          <p>Un compteur de scores pour plus de 20 jeux : Belote, Coinche, Tarot, Yam's, Mölkky, Fléchettes. Saisie en direct, historique et statistiques.</p>
           <div class="app-tags"><span>iOS</span><span>Jeux de société</span></div>
-          <span class="app-status">En développement</span>
+          <p class="app-status">En développement</p>
         </article>
 
         <article class="app-card">
           <img class="app-icon-img" src="apps/trailfit-icon.png" alt="Icône de TrailFit">
           <h3>TrailFit</h3>
-          <p>Suivi GPS de vos courses, trails et marches — allure, dénivelé, zones de fréquence cardiaque — avec des programmes de course et de renforcement musculaire. Application Apple Watch autonome et enregistrement dans Apple Santé.</p>
+          <p>Suivi GPS de vos courses, trails et marches — allure, dénivelé, zones cardiaques — avec programmes de course et de renforcement. Application Apple&nbsp;Watch autonome.</p>
           <div class="app-tags"><span>iOS</span><span>Apple Watch</span><span>Sport</span></div>
-          <span class="app-status">En développement</span>
+          <p class="app-status">En développement</p>
         </article>
 
-        <article class="app-card" style="--card-accent:#2F6F4F; --card-accent-bg:rgba(47,111,79,0.14);">
+        <article class="app-card">
           <img class="app-icon-img" src="apps/velobriere-icon.png" alt="Icône de Vélo Brière">
           <h3>Vélo Brière</h3>
-          <p>Réservation de vélos électriques à Saint-Lyphard, au cœur du Parc naturel régional de Brière. Catalogue, demande de réservation par dates et suivi des réservations.</p>
-          <div class="app-tags"><span>iOS</span><span>Client</span></div>
-          <span class="app-status">En développement</span>
+          <p>Réservation de vélos électriques à Saint-Lyphard, au cœur du Parc naturel régional de Brière. Catalogue, réservation par dates et suivi.</p>
+          <div class="app-tags"><span>iOS</span><span>Projet client</span></div>
+          <p class="app-status">En développement</p>
         </article>
 
         <article class="app-card app-card--placeholder">
-          <div class="app-icon">✨</div>
-          <h3>La prochaine, c'est vous ?</h3>
-          <p>Cet emplacement pourrait présenter l'application que vous allez me proposer.</p>
-          <a href="#demande" class="app-link">Proposer mon idée →</a>
+          <h3>La prochaine,<br>c'est la vôtre.</h3>
+          <p>Cet emplacement attend l'application que vous allez me proposer.</p>
+          <a href="#demande" class="link-arrow">Proposer mon idée</a>
         </article>
 
       </div>
@@ -91,24 +98,26 @@
 
   <section id="comment" class="section section-alt">
     <div class="container">
-      <h2>Comment ça marche</h2>
-      <p class="section-sub">Trois étapes simples pour voir votre idée prendre vie.</p>
+      <div class="section-head">
+        <h2>Comment ça marche</h2>
+        <p>Trois étapes, de votre idée à l'application.</p>
+      </div>
 
       <div class="steps">
         <div class="step">
-          <div class="step-num">1</div>
+          <p class="step-num">Étape 1</p>
           <h3>Vous décrivez votre idée</h3>
-          <p>Remplissez le formulaire ci-dessous avec le maximum de détails sur l'application que vous imaginez.</p>
+          <p>Remplissez le formulaire avec le maximum de détails sur l'application que vous imaginez.</p>
         </div>
         <div class="step">
-          <div class="step-num">2</div>
+          <p class="step-num">Étape 2</p>
           <h3>On en discute</h3>
-          <p>Je vous recontacte par email pour affiner le besoin et cadrer le projet ensemble.</p>
+          <p>Je vous recontacte par e-mail pour affiner le besoin et cadrer le projet ensemble.</p>
         </div>
         <div class="step">
-          <div class="step-num">3</div>
-          <h3>Je développe, gratuitement</h3>
-          <p>Je réalise votre application sans frais. Une belle occasion pour vous comme pour moi de créer quelque chose d'utile.</p>
+          <p class="step-num">Étape 3</p>
+          <h3>Je développe</h3>
+          <p>Je réalise votre application sans frais. Une belle occasion, pour vous comme pour moi, de créer quelque chose d'utile.</p>
         </div>
       </div>
     </div>
@@ -116,12 +125,9 @@
 
   <section id="demande" class="section">
     <div class="container form-section">
-      <div class="form-intro">
+      <div class="section-head">
         <h2>Proposez votre application</h2>
-        <p class="section-sub">
-          Décrivez votre projet, je vous recontacte pour en discuter. Envoi direct
-          par email, aucune inscription nécessaire.
-        </p>
+        <p>Décrivez votre projet, je vous recontacte pour en discuter. Aucune inscription nécessaire.</p>
       </div>
 
       <form id="request-form" class="request-form">
@@ -131,7 +137,7 @@
         </div>
 
         <div class="form-row">
-          <label for="email">Votre email</label>
+          <label for="email">Votre e-mail</label>
           <input type="email" id="email" name="email" placeholder="vous@email.com" required>
         </div>
 
@@ -145,7 +151,7 @@
           <textarea id="description" name="description" rows="6" placeholder="À quoi sert l'application ? Qui l'utilisera ? Quelles sont les fonctionnalités principales ?" required></textarea>
         </div>
 
-        <button type="submit" class="btn btn-primary btn-full">Envoyer ma demande</button>
+        <button type="submit" class="btn btn-full">Envoyer ma demande</button>
         <p id="form-note" class="form-note"></p>
         <p class="form-legal">
           Ce formulaire ouvre votre logiciel de messagerie : rien n'est enregistré sur ce
@@ -159,14 +165,17 @@
 </main>
 
 <footer class="site-footer">
-  <div class="container footer-inner">
-    <p>&copy; <span id="year"></span> JMprojectlab — Toutes les applications présentées sont gratuites à proposer.</p>
+  <div class="footer-inner">
     <div class="footer-links">
       <a href="mentions-legales.html">Mentions légales</a>
       <a href="confidentialite.html">Confidentialité</a>
       <a href="brand/charte.html">Charte graphique</a>
       <a href="mailto:jimmy.mieuzet@gmail.com">jimmy.mieuzet@gmail.com</a>
     </div>
+    <p class="footer-copy">
+      Copyright &copy; <span id="year"></span> JMprojectlab. Les applications proposées
+      via ce site sont développées gratuitement.
+    </p>
   </div>
 </footer>
 

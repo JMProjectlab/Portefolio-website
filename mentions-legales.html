@@ -6,20 +6,24 @@
 <title>Mentions légales — JMprojectlab</title>
 <meta name="description" content="Mentions légales du site JMprojectlab : éditeur, hébergeur et conditions d'utilisation.">
 <meta name="robots" content="noindex">
-<link rel="icon" type="image/svg+xml" href="brand/logo-mark.svg">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+<link rel="icon" type="image/svg+xml" href="brand/logo-mark-ink.svg">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header class="site-header">
   <div class="container header-inner">
-    <a href="index.html" class="logo">
-      <img src="brand/logo-lockup.svg" alt="JMprojectlab" height="40">
+    <a href="index.html" class="logo" aria-label="JMprojectlab, accueil">
+      <img class="logo-light" src="brand/logo-mark-ink.svg" alt="">
+      <img class="logo-dark" src="brand/logo-mark-white.svg" alt="">
+      <span class="logo-word">projectlab</span>
     </a>
     <nav>
-      <a href="index.html#apps">Mes Applications</a>
+      <a href="index.html#apps">Applications</a>
       <a href="index.html#comment">Comment ça marche</a>
-      <a href="index.html#demande">Proposer une app</a>
+      <a href="index.html#demande">Proposer une idée</a>
     </nav>
   </div>
 </header>
@@ -76,8 +80,8 @@
       à ces clients.
     </p>
     <p>
-      La police de caractères Fraunces est utilisée sous licence SIL Open Font
-      License 1.1.
+      Le monogramme du logo est dessiné à partir de la police Fraunces, utilisée
+      sous licence SIL Open Font License 1.1.
     </p>
 
     <h2>Liens externes</h2>
@@ -98,14 +102,17 @@
 </main>
 
 <footer class="site-footer">
-  <div class="container footer-inner">
-    <p>&copy; <span id="year"></span> JMprojectlab — Toutes les applications présentées sont gratuites à proposer.</p>
+  <div class="footer-inner">
     <div class="footer-links">
       <a href="mentions-legales.html">Mentions légales</a>
       <a href="confidentialite.html">Confidentialité</a>
       <a href="brand/charte.html">Charte graphique</a>
       <a href="mailto:jimmy.mieuzet@gmail.com">jimmy.mieuzet@gmail.com</a>
     </div>
+    <p class="footer-copy">
+      Copyright &copy; <span id="year"></span> JMprojectlab. Les applications proposées
+      via ce site sont développées gratuitement.
+    </p>
   </div>
 </footer>
 

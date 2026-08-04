@@ -6,20 +6,24 @@
 <title>Politique de confidentialité — JMprojectlab</title>
 <meta name="description" content="Quelles données sont collectées sur JMprojectlab, pourquoi, et comment exercer vos droits.">
 <meta name="robots" content="noindex">
-<link rel="icon" type="image/svg+xml" href="brand/logo-mark.svg">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+<link rel="icon" type="image/svg+xml" href="brand/logo-mark-ink.svg">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header class="site-header">
   <div class="container header-inner">
-    <a href="index.html" class="logo">
-      <img src="brand/logo-lockup.svg" alt="JMprojectlab" height="40">
+    <a href="index.html" class="logo" aria-label="JMprojectlab, accueil">
+      <img class="logo-light" src="brand/logo-mark-ink.svg" alt="">
+      <img class="logo-dark" src="brand/logo-mark-white.svg" alt="">
+      <span class="logo-word">projectlab</span>
     </a>
     <nav>
-      <a href="index.html#apps">Mes Applications</a>
+      <a href="index.html#apps">Applications</a>
       <a href="index.html#comment">Comment ça marche</a>
-      <a href="index.html#demande">Proposer une app</a>
+      <a href="index.html#demande">Proposer une idée</a>
     </nav>
   </div>
 </header>
@@ -87,10 +91,10 @@
 
     <h2>Cookies et mesure d'audience</h2>
     <p>
-      Ce site ne dépose aucun cookie et n'utilise aucun outil de statistiques. Les
-      polices de caractères sont servies depuis ce site et non depuis un service
-      tiers : votre navigateur ne contacte donc aucun serveur extérieur pendant votre
-      visite.
+      Ce site ne dépose aucun cookie et n'utilise aucun outil de statistiques. Il
+      s'affiche avec les polices déjà installées sur votre appareil, sans en
+      télécharger aucune : votre navigateur ne contacte donc aucun serveur extérieur
+      pendant votre visite.
     </p>
 
     <h2>Hébergement</h2>
@@ -121,14 +125,17 @@
 </main>
 
 <footer class="site-footer">
-  <div class="container footer-inner">
-    <p>&copy; <span id="year"></span> JMprojectlab — Toutes les applications présentées sont gratuites à proposer.</p>
+  <div class="footer-inner">
     <div class="footer-links">
       <a href="mentions-legales.html">Mentions légales</a>
       <a href="confidentialite.html">Confidentialité</a>
       <a href="brand/charte.html">Charte graphique</a>
       <a href="mailto:jimmy.mieuzet@gmail.com">jimmy.mieuzet@gmail.com</a>
     </div>
+    <p class="footer-copy">
+      Copyright &copy; <span id="year"></span> JMprojectlab. Les applications proposées
+      via ce site sont développées gratuitement.
+    </p>
   </div>
 </footer>
 

@@ -20,8 +20,11 @@
   --max: 980px;
   --max-wide: 1180px;
 
+  /* Chaque système d'abord sur sa propre police d'interface : SF Pro (déjà
+     installée) sur Apple, Segoe UI sur Windows, Roboto sur Android. Helvetica
+     arrive en dernier recours seulement — sous Windows elle est mal rendue. */
   --font: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text",
-          "Helvetica Neue", Helvetica, "Segoe UI", Roboto, Arial, sans-serif;
+          "Segoe UI", Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {

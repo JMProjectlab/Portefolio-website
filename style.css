@@ -267,6 +267,8 @@ nav a:hover { opacity: 1; }
 }
 
 .app-status { font-size: 15px; color: var(--ink-2); margin-top: auto; padding-top: 6px; }
+.app-status--live { color: var(--blue); font-weight: 500; }
+.app-links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
 .app-card--placeholder { justify-content: center; }
 
 /* ---------- Étapes ---------- */

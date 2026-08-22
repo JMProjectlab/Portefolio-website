@@ -168,6 +168,16 @@ nav a:hover { opacity: 1; }
 /* ---------- Hero ---------- */
 
 .hero { padding: 90px 0 80px; text-align: center; }
+
+/* Logotype d'accueil. `width`/`height` sont posés dans le HTML pour réserver
+   la place avant chargement — sans quoi le titre saute au moment où le SVG
+   arrive. La hauteur réelle est fixée ici, la largeur suit. */
+.hero-logo { display: block; height: 72px; width: auto; margin: 0 auto 28px; }
+.hero-logo--dark { display: none; }
+@media (prefers-color-scheme: dark) {
+  .hero-logo--light { display: none; }
+  .hero-logo--dark { display: block; }
+}
 .hero h1 {
   font-size: clamp(40px, 8vw, 76px);
   line-height: 1.05;
@@ -368,6 +378,7 @@ input:focus, textarea:focus { outline: none; border-color: var(--blue); box-shad
 @media (max-width: 600px) {
   nav { display: none; }
   .hero { padding: 62px 0 56px; }
+  .hero-logo { height: 54px; margin-bottom: 22px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

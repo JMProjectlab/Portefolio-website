@@ -267,6 +267,12 @@ nav a:hover { opacity: 1; }
 }
 
 .app-status { font-size: 15px; color: var(--ink-2); margin-top: auto; padding-top: 6px; }
+/* Statut d'une app en vente. Encre pleine et demi-gras plutôt que bleu :
+   le bleu est réservé à ce qui se clique, et ce statut est posé juste
+   au-dessus de deux liens. `.app-card p` (0,1,1) l'emporterait sur une
+   simple classe, d'où la qualification par l'élément. */
+.app-card p.app-status--live { color: var(--ink); font-weight: 500; }
+.app-links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
 .app-card--placeholder { justify-content: center; }
 
 /* ---------- Étapes ---------- */

@@ -172,7 +172,7 @@ nav a:hover { opacity: 1; }
 /* Logotype d'accueil. `width`/`height` sont posés dans le HTML pour réserver
    la place avant chargement — sans quoi le titre saute au moment où le SVG
    arrive. La hauteur réelle est fixée ici, la largeur suit. */
-.hero-logo { display: block; height: 132px; width: auto; margin: 0 auto 34px; }
+.hero-logo { display: block; height: 180px; width: auto; margin: 0 auto 38px; }
 .hero-logo--dark { display: none; }
 @media (prefers-color-scheme: dark) {
   .hero-logo--light { display: none; }
@@ -378,7 +378,7 @@ input:focus, textarea:focus { outline: none; border-color: var(--blue); box-shad
 @media (max-width: 600px) {
   nav { display: none; }
   .hero { padding: 62px 0 56px; }
-  .hero-logo { height: 96px; margin-bottom: 26px; }
+  .hero-logo { height: 124px; margin-bottom: 28px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

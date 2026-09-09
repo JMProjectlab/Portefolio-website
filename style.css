@@ -353,7 +353,144 @@ input:focus, textarea:focus { outline: none; border-color: var(--blue); box-shad
 .footer-links a:hover { text-decoration: underline; }
 .footer-copy { margin: 16px 0 0; padding-top: 16px; border-top: 1px solid var(--hairline); }
 
+/* ---------- Les deux voies (accueil) ---------- */
+
+/* Deux cartes côte à côte, jamais trois : il n'y a que deux façons de
+   travailler ensemble, et la grille doit le dire d'un coup d'œil. */
+.voies {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 400px), 1fr));
+  gap: 20px;
+}
+.voie {
+  background: var(--bg-alt);
+  border-radius: var(--radius);
+  padding: 38px 34px 34px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.section-alt .voie { background: var(--surface); }
+.voie h3 { font-size: 26px; letter-spacing: -0.018em; }
+.voie p { margin: 0; color: var(--ink-2); font-size: 16px; }
+.voie .voie-prix {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--ink);
+  margin-top: auto;
+  padding-top: 8px;
+}
+.voie .link-arrow { margin-top: 4px; }
+
+/* ---------- Offre : chiffres, tarifs, limites ---------- */
+
+.chiffres {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+  gap: 20px;
+}
+.chiffre {
+  background: var(--bg-alt);
+  border-radius: var(--radius);
+  padding: 28px 26px;
+  text-align: center;
+}
+.section-alt .chiffre { background: var(--surface); }
+.chiffre .valeur {
+  font-size: 38px;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.05;
+}
+.chiffre .quoi { margin: 10px 0 0; color: var(--ink-2); font-size: 15px; }
+
+.tarifs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 290px), 1fr));
+  gap: 20px;
+  align-items: start;
+}
+.tarif {
+  background: var(--surface);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius);
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+/* La formule courante est cerclée de bleu plutôt que colorée : le fond teinté
+   la ferait passer pour un bouton, et rien ne se clique dans cette carte. */
+.tarif--phare { border-color: var(--blue); border-width: 2px; padding: 31px 27px; }
+.tarif h3 { font-size: 21px; }
+.tarif .montant {
+  font-size: 34px;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+}
+.tarif .montant span { font-size: 15px; font-weight: 400; color: var(--ink-2); letter-spacing: -0.012em; }
+.tarif ul { margin: 6px 0 0; padding-left: 19px; display: flex; flex-direction: column; gap: 6px; }
+.tarif li { color: var(--ink-2); font-size: 15px; }
+.tarif .marque {
+  align-self: flex-start;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--blue);
+  border: 1px solid var(--blue);
+  padding: 3px 11px;
+  border-radius: 980px;
+}
+
+/* Liste des limites : un tiret bleu tient lieu de puce. Le contenu de ces
+   lignes est ce qui distingue un audit d'une plaquette, il mérite de respirer. */
+.limites { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 18px; }
+.limites li { padding-left: 28px; position: relative; color: var(--ink-2); font-size: 17px; }
+.limites li::before { content: "—"; position: absolute; left: 0; color: var(--blue); font-weight: 600; }
+.limites strong { color: var(--ink); font-weight: 600; }
+
+/* Aperçu du rapport remis au client. Le tableau déborde sur mobile : il défile
+   dans son propre conteneur pour que la page, elle, ne défile jamais. */
+.apercu {
+  background: var(--surface);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius);
+  padding: 26px;
+  max-width: 760px;
+  margin: 0 auto;
+}
+.apercu-titre { font-size: 19px; font-weight: 600; letter-spacing: -0.018em; }
+.apercu-meta { font-size: 13px; color: var(--ink-2); margin: 4px 0 20px; }
+.apercu-defile { overflow-x: auto; }
+.apercu table { border-collapse: collapse; width: 100%; font-size: 15px; }
+.apercu th, .apercu td { padding: 9px 10px; text-align: left; border-bottom: 1px solid var(--hairline); }
+.apercu th { font-size: 12px; font-weight: 500; color: var(--ink-2); letter-spacing: 0; white-space: nowrap; }
+.apercu td.num, .apercu th.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.apercu tr:last-child td { border-bottom: none; }
+
+.avertissement {
+  max-width: 760px;
+  margin: 22px auto 0;
+  padding: 18px 22px;
+  background: var(--bg-alt);
+  border-radius: var(--radius-sm);
+  color: var(--ink-2);
+  font-size: 15px;
+  line-height: 1.5;
+}
+.section-alt .avertissement { background: var(--bg); }
+.avertissement strong { color: var(--ink); font-weight: 600; }
+
+/* Texte suivi d'une page d'offre : plus étroit que la pleine largeur, pour
+   rester lisible. */
+.prose { max-width: 34em; margin: 0 auto; }
+.prose p { color: var(--ink-2); font-size: 17px; }
+.prose p + p { margin-top: 16px; }
+.prose p:first-child { margin-top: 0; }
+.centre { text-align: center; }
+
 /* ---------- Pages légales ---------- */
+
 
 .legal { padding: 72px 0 96px; }
 .legal-inner { max-width: 700px; margin: 0 auto; }

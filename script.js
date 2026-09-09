@@ -1,10 +1,13 @@
-document.getElementById("year").textContent = new Date().getFullYear();
+const yearEl = document.getElementById("year");
+if (yearEl) yearEl.textContent = new Date().getFullYear();
 
 const CONTACT_EMAIL = "jimmy.mieuzet@gmail.com";
 const form = document.getElementById("request-form");
 const note = document.getElementById("form-note");
 
-form.addEventListener("submit", (e) => {
+// Toutes les pages chargent ce script ; seule celle d'accueil porte le
+// formulaire. Sans cette garde, les autres s'arrêteraient sur une erreur.
+if (form) form.addEventListener("submit", (e) => {
   e.preventDefault();
 
   const name = form.name.value.trim();

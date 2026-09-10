@@ -46,7 +46,9 @@
       <p class="confidentialite">
         <strong>Vos réponses ne quittent pas votre navigateur.</strong> Le calcul se
         fait sur votre appareil, rien n'est envoyé ni enregistré nulle part. Vous
-        pouvez fermer la page : il ne restera rien.
+        pouvez fermer la page : il ne restera rien. Seule exception, si vous la
+        demandez : la notation assistée envoie les descriptions de tâches — et
+        rien d'autre — le temps de l'appel, sans les conserver.
       </p>
 
       <div class="bloc-reglages">
@@ -64,6 +66,19 @@
       </p>
 
       <div id="liste-taches"></div>
+
+      <div id="bloc-ia" class="bloc-ia" hidden>
+        <h3>Laisser l'IA noter d'après vos descriptions</h3>
+        <p>
+          Les cinq questions par tâche sont les plus difficiles à trancher quand on
+          n'a pas l'habitude. Décrivez la tâche en une phrase et Claude propose les
+          notes, une approche technique et le risque principal — <strong>vous gardez
+          la main :</strong> tout reste modifiable ensuite.
+        </p>
+        <div id="turnstile" class="turnstile"></div>
+        <button type="button" id="noter-ia" class="btn btn-secondaire" disabled>Faire noter mes tâches</button>
+        <p id="message-ia" class="message-formulaire" role="status"></p>
+      </div>
 
       <div class="actions-formulaire">
         <button type="button" id="ajouter" class="btn btn-secondaire">Ajouter une tâche</button>

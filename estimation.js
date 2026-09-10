@@ -5,6 +5,17 @@
 (function () {
   "use strict";
 
+  /* -----------------------------------------------------------------------
+   * Notation assistée — à renseigner après avoir déployé le Worker
+   * (voir Gisement/worker/README.md). Tant que ces deux valeurs sont vides,
+   * la page fonctionne exactement comme avant, avec ses listes déroulantes :
+   * aucune fonctionnalité ne dépend d'un service qui pourrait ne pas exister.
+   * --------------------------------------------------------------------- */
+  var QUALIFIEUR_URL = "";
+  var TURNSTILE_SITE_KEY = "";
+
+  var iaDisponible = Boolean(QUALIFIEUR_URL && TURNSTILE_SITE_KEY);
+
   var liste = document.getElementById("liste-taches");
   if (!liste) return;   // page sans questionnaire
 
@@ -96,6 +107,17 @@
     cNom.appendChild(iNom);
     carte.appendChild(cNom);
 
+    var cDesc = champ("desc-" + n, "Décrivez-la en une phrase");
+    var iDesc = elt("textarea");
+    iDesc.id = "desc-" + n; iDesc.rows = 2; iDesc.maxLength = 600;
+    iDesc.placeholder = "Ex : les commandes arrivent en PDF ou dans le corps du mail, un assistant les retape une par une dans l'ERP.";
+    cDesc.appendChild(iDesc);
+    var aideDesc = elt("p", "aide", iaDisponible
+      ? "Sert à la notation assistée ci-dessous, et part dans le CSV pour l'audit complet."
+      : "Facultatif. Reprise dans le CSV exporté, elle évite de tout réexpliquer pour l'audit complet.");
+    cDesc.appendChild(aideDesc);
+    carte.appendChild(cDesc);
+
     var grille = elt("div", "champs-grille");
 
     var cFreq = champ("freq-" + n, "À quelle fréquence ?");
@@ -130,6 +152,7 @@
 
     if (prefill) {
       iNom.value = prefill.nom;
+      if (prefill.description) document.getElementById("desc-" + n).value = prefill.description;
       document.getElementById("freq-" + n).value = prefill.frequence;
       document.getElementById("occ-" + n).value = prefill.occurrences;
       document.getElementById("dur-" + n).value = prefill.duree;
@@ -162,6 +185,7 @@
 
       var t = {
         tache: nom,
+        description: document.getElementById("desc-" + n).value.trim(),
         frequence: document.getElementById("freq-" + n).value,
         occurrences: occ,
         duree_min: duree,
@@ -304,14 +328,155 @@
     setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
   }
 
+
+  /* ---------------------------------------------------------------------
+   * Notation assistée par Claude, via le Worker.
+   *
+   * Trois principes : la clé n'est jamais ici (le Worker la détient), une note
+   * saisie à la main n'est jamais écrasée, et tout échec retombe sur les
+   * listes déroulantes sans casser la page.
+   * ------------------------------------------------------------------- */
+
+  var widgetTurnstile = null;
+
+  function preparerIA() {
+    if (!iaDisponible) return;
+
+    var zone = document.getElementById("bloc-ia");
+    zone.hidden = false;
+
+    var script = document.createElement("script");
+    script.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
+    script.async = true;
+    script.defer = true;
+    script.onload = function () {
+      widgetTurnstile = window.turnstile.render("#turnstile", {
+        sitekey: TURNSTILE_SITE_KEY, size: "flexible"
+      });
+      document.getElementById("noter-ia").disabled = false;
+    };
+    // Si le script ne charge pas — bloqueur, réseau coupé — on retire
+    // proprement l'offre plutôt que de laisser un bouton mort.
+    script.onerror = function () { zone.hidden = true; };
+    document.head.appendChild(script);
+  }
+
+  function appliquerNotations(notations) {
+    var parNumero = {};
+    Array.prototype.forEach.call(liste.children, function (carte, i) {
+      parNumero[i + 1] = carte.dataset.index;
+    });
+    var appliquees = 0;
+    notations.forEach(function (n) {
+      var idx = parNumero[n.numero];
+      if (!idx) return;
+      CRITERES.forEach(function (c) {
+        var sel = document.getElementById(c.cle + "-" + idx);
+        var v = parseInt(n[c.cle], 10);
+        if (sel && v >= 1 && v <= 5) sel.selectedIndex = v - 1;
+      });
+      var carte = liste.querySelector('[data-index="' + idx + '"]');
+      var ancien = carte.querySelector(".retour-ia");
+      if (ancien) ancien.remove();
+      if (n.approche || n.risque) {
+        var d = elt("div", "retour-ia");
+        if (n.approche) {
+          var a = elt("p"); a.appendChild(elt("strong", null, "Approche proposée : "));
+          a.appendChild(document.createTextNode(n.approche)); d.appendChild(a);
+        }
+        if (n.risque) {
+          var r = elt("p"); r.appendChild(elt("strong", null, "Risque principal : "));
+          r.appendChild(document.createTextNode(n.risque)); d.appendChild(r);
+        }
+        carte.appendChild(d);
+      }
+      appliquees += 1;
+    });
+    return appliquees;
+  }
+
+  function noterParIA() {
+    var msg = document.getElementById("message-ia");
+    var bouton = document.getElementById("noter-ia");
+
+    var aEnvoyer = [];
+    Array.prototype.forEach.call(liste.children, function (carte, i) {
+      var n = carte.dataset.index;
+      var nom = document.getElementById("nom-" + n).value.trim();
+      var desc = document.getElementById("desc-" + n).value.trim();
+      if (nom && desc.length >= 15) {
+        aEnvoyer.push({
+          numero: i + 1, tache: nom, description: desc,
+          frequence: document.getElementById("freq-" + n).value,
+          duree_min: parseFloat(document.getElementById("dur-" + n).value) || null
+        });
+      }
+    });
+
+    if (!aEnvoyer.length) {
+      msg.textContent = "Décrivez au moins une tâche en une phrase pour que la notation ait de quoi travailler.";
+      msg.className = "message-formulaire message-alerte";
+      return;
+    }
+
+    var jeton = widgetTurnstile !== null && window.turnstile
+      ? window.turnstile.getResponse(widgetTurnstile) : "";
+    if (!jeton) {
+      msg.textContent = "La vérification anti-robot n'est pas encore prête. Patientez une seconde et réessayez.";
+      msg.className = "message-formulaire message-alerte";
+      return;
+    }
+
+    bouton.disabled = true;
+    msg.textContent = "Notation en cours…";
+    msg.className = "message-formulaire";
+
+    var controleur = new AbortController();
+    var expire = setTimeout(function () { controleur.abort(); }, 60000);
+
+    fetch(QUALIFIEUR_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ token: jeton, taches: aEnvoyer }),
+      signal: controleur.signal
+    }).then(function (r) {
+      return r.json().then(function (j) { return { statut: r.status, corps: j }; });
+    }).then(function (res) {
+      if (res.statut !== 200) {
+        throw new Error(res.corps && res.corps.erreur
+          ? res.corps.erreur
+          : "La notation a échoué.");
+      }
+      var n = appliquerNotations(res.corps.taches || []);
+      msg.textContent = n + (n > 1 ? " tâches notées." : " tâche notée.") +
+        " Vérifiez les réponses : ce sont des estimations à partir de votre description, corrigez ce qui vous semble faux.";
+      msg.className = "message-formulaire";
+    }).catch(function (e) {
+      msg.textContent = (e && e.name === "AbortError")
+        ? "La notation a mis trop de temps. Utilisez les listes déroulantes."
+        : (e.message || "La notation a échoué.") + " Les listes déroulantes restent disponibles.";
+      msg.className = "message-formulaire message-alerte";
+    }).then(function () {
+      clearTimeout(expire);
+      bouton.disabled = false;
+      // Un jeton Turnstile ne sert qu'une fois.
+      if (widgetTurnstile !== null && window.turnstile) window.turnstile.reset(widgetTurnstile);
+    });
+  }
+
   document.getElementById("ajouter").addEventListener("click", function () { ajouterTache(); });
   document.getElementById("calculer").addEventListener("click", calculer);
   document.getElementById("telecharger").addEventListener("click", telecharger);
+  if (iaDisponible) {
+    document.getElementById("noter-ia").addEventListener("click", noterParIA);
+    preparerIA();
+  }
 
   // Une première tâche pré-remplie : une page qui s'ouvre sur un formulaire vide
   // ne dit pas ce qu'on attend de vous.
   ajouterTache({
     nom: "Ressaisir les commandes reçues par mail",
+    description: "Les commandes arrivent en PDF ou dans le corps du mail, un assistant les retape une par une dans l'ERP. Le format change selon le client.",
     frequence: "jour", occurrences: 12, duree: 6,
     repetitivite: 5, structuration: 2, jugement: 1, criticite: 4, acces_si: 3
   });

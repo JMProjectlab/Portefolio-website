@@ -577,6 +577,33 @@ select:focus { outline: none; border-color: var(--blue); box-shadow: 0 0 0 3px c
 .message-formulaire { min-height: 1.4em; margin: 14px 0 0; font-size: 15px; color: var(--ink-2); }
 .message-alerte { color: var(--blue); font-weight: 500; }
 
+/* ---------- Notation assistée ---------- */
+
+.bloc-ia {
+  border: 1px solid var(--blue);
+  border-radius: var(--radius);
+  padding: 26px 28px;
+  margin-top: 32px;
+}
+.bloc-ia h3 { font-size: 20px; margin-bottom: 10px; }
+.bloc-ia p { color: var(--ink-2); font-size: 16px; }
+.bloc-ia strong { color: var(--ink); font-weight: 600; }
+.turnstile { margin: 18px 0 14px; }
+
+/* Retour du modèle sous une tâche : c'est une proposition, pas un verdict —
+   le fond discret et le filet le disent avant qu'on lise le texte. */
+.retour-ia {
+  background: var(--bg-alt);
+  border-left: 3px solid var(--blue);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  padding: 14px 18px;
+}
+.retour-ia p { margin: 0 0 8px; font-size: 15px; color: var(--ink-2); }
+.retour-ia p:last-child { margin-bottom: 0; }
+.retour-ia strong { color: var(--ink); font-weight: 600; }
+
+textarea { min-height: 64px; }
+
 /* ---------- Résultat de l'estimation ---------- */
 
 .carte-chiffre {

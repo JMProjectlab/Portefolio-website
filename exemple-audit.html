@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="brand/logo-mark-ink.svg">
+<title>Exemple d'audit — JMprojectlab</title>
+<meta name="description" content="Un exemple complet du rapport remis à la fin d'un Diagnostic Gisement, sur des données fictives.">
+<style>
+:root{--encre:#14251f;--doux:#5b6b64;--trait:#dfe5e1;--fond:#fbfbf9;
+--accent:#1f6f52;--accent-doux:#eaf3ee;--alerte:#8a4b2a;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--fond);color:var(--encre);
+font:16px/1.6 "Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;}
+.page{max-width:960px;margin:0 auto;padding:48px 32px 80px}
+header{border-bottom:3px solid var(--encre);padding-bottom:18px;margin-bottom:36px}
+.sur{font:600 12px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.14em;
+text-transform:uppercase;color:var(--accent)}
+h1{font-size:34px;line-height:1.15;margin:12px 0 6px;letter-spacing:-.01em}
+.meta{color:var(--doux);font-size:14px}
+h2{font-size:23px;margin:44px 0 14px;padding-top:22px;border-top:1px solid var(--trait)}
+h3{font-size:17px;margin:28px 0 10px}
+p{margin:0 0 14px;max-width:68ch}
+.chiffres{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px;margin:26px 0}
+.carte{border:1px solid var(--trait);background:#fff;border-radius:10px;padding:16px 18px}
+.carte.fort{border-color:var(--accent);background:var(--accent-doux)}
+.carte .k{font:600 11px/1 ui-sans-serif,system-ui,sans-serif;letter-spacing:.1em;
+text-transform:uppercase;color:var(--doux)}
+.carte .v{font-size:27px;font-weight:600;margin-top:8px;letter-spacing:-.02em}
+.carte .n{font-size:13px;color:var(--doux);margin-top:4px}
+.tableau{overflow-x:auto;margin:16px 0 8px}
+table{border-collapse:collapse;width:100%;font-size:14px;
+font-family:ui-sans-serif,system-ui,sans-serif}
+th,td{padding:9px 11px;text-align:left;border-bottom:1px solid var(--trait);vertical-align:top}
+th{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--doux);
+white-space:nowrap;border-bottom:2px solid var(--encre)}
+td.n,th.n{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+tbody tr:nth-child(even){background:#fff}
+.vague{border-left:4px solid var(--accent);padding-left:16px;margin:30px 0}
+.vague.v2{border-left-color:#b8912f}
+.vague.v3{border-left-color:var(--trait)}
+.vague h3{margin-top:0}
+.vague .sous{color:var(--doux);font-size:14px;margin-bottom:10px}
+.detail{border:1px solid var(--trait);background:#fff;border-radius:10px;
+padding:14px 18px;margin:12px 0}
+.detail .titre{font-weight:600;margin-bottom:6px}
+.detail dl{margin:0;font-size:14px;color:var(--doux)}
+.detail dt{font-weight:600;color:var(--encre);margin-top:8px}
+.detail dd{margin:2px 0 0}
+.note{background:#fff;border:1px solid var(--trait);border-left:4px solid var(--alerte);
+border-radius:0 10px 10px 0;padding:14px 18px;margin:22px 0;font-size:14.5px}
+footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--trait);
+color:var(--doux);font-size:13px}
+@media print{body{background:#fff}.page{padding:0}h2{page-break-after:avoid}
+.detail,.vague,table{page-break-inside:avoid}}
+</style>
+</head>
+<body>
+<style>
+.bandeau-exemple{
+  background:#14251f;color:#fbfbf9;padding:14px 20px;
+  font:15px/1.5 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  display:flex;flex-wrap:wrap;gap:8px 18px;align-items:baseline;justify-content:center;
+}
+.bandeau-exemple a{color:#9fe0c1}
+.bandeau-exemple strong{font-weight:600}
+@media print{.bandeau-exemple{display:none}}
+</style>
+<div class="bandeau-exemple">
+  <span><strong>Exemple d'audit</strong> — données entièrement fictives, publié pour montrer le livrable.</span>
+  <a href="estimation.html">Estimer votre propre gisement</a>
+  <a href="gisement.html">Voir l'offre</a>
+</div>
+<div class="page">
+<header>
+  <div class="sur">JMprojectlab · Audit d'automatisation</div>
+  <h1>Où votre équipe perd du temps,<br>et ce que l'IA peut en récupérer</h1>
+  <div class="meta">Groupe Exemple (fictif) — 2026-09-10</div>
+</header>
+
+<h2>Ce que vous payez aujourd'hui</h2>
+<p>15 tâches récurrentes ont été inventoriées avec vos équipes. Voici ce
+qu'elles représentent sur une année pleine.</p>
+<div class="chiffres">
+  <div class="carte"><div class="k">Temps consommé</div><div class="v">3 268 h</div>
+    <div class="n">par an, sur les tâches inventoriées</div></div>
+  <div class="carte"><div class="k">Coût annuel</div><div class="v">141 443 €</div>
+    <div class="n">temps de travail chargé</div></div>
+  <div class="carte"><div class="k">Tâches</div><div class="v">15</div>
+    <div class="n">dont 5 immédiatement actionnables</div></div>
+</div>
+
+<h2>Ce qui est récupérable</h2>
+<div class="chiffres">
+  <div class="carte fort"><div class="k">Temps libérable</div><div class="v">1 883 h</div>
+    <div class="n">soit 1.18 ETP</div></div>
+  <div class="carte fort"><div class="k">Gain annuel</div><div class="v">79 786 €</div>
+    <div class="n">à périmètre constant</div></div>
+  <div class="carte"><div class="k">Investissement</div><div class="v">52 975 €</div>
+    <div class="n">81.5 jours de mise en œuvre</div></div>
+  <div class="carte"><div class="k">Retour</div><div class="v">8.0 mois</div>
+    <div class="n">sur l'ensemble du plan</div></div>
+</div>
+<p>Le gain n'est pas le temps total : c'est la part de ce temps qu'une automatisation
+peut raisonnablement absorber, plafonnée à 85%. Ce qui reste — supervision,
+cas particuliers, reprises — continue de coûter, et c'est normal.</p>
+
+<h2>Le plan</h2>
+<div class="vague v1">
+<h3>Vague 1 — à lancer tout de suite</h3>
+<p class="sous">Retour en moins de 6 mois, moins de 5 jours de mise en œuvre. C&#x27;est ici que se trouve l&#x27;argent facile.</p>
+<div class="tableau"><table>
+<thead><tr><th>Tâche</th><th class="n">Temps / an</th><th class="n">Score</th>
+<th class="n">Gain / an</th><th class="n">Effort</th><th class="n">Retour</th></tr></thead>
+<tbody>
+<tr><td>Réponse aux questions clients de niveau 1<br><span style='color:var(--doux);font-size:12px'>Service client</span></td><td class='n'>1 100 h</td><td class='n'>80/100</td><td class='n'>28 424 €</td><td class='n'>4.0 j</td><td class='n'>1 mois</td></tr>
+<tr><td>Rapprochement des factures transporteurs<br><span style='color:var(--doux);font-size:12px'>Logistique</span></td><td class='n'>330 h</td><td class='n'>78/100</td><td class='n'>10 000 €</td><td class='n'>4.0 j</td><td class='n'>3 mois</td></tr>
+<tr><td>Tri et affectation des tickets entrants<br><span style='color:var(--doux);font-size:12px'>Support</span></td><td class='n'>293 h</td><td class='n'>76/100</td><td class='n'>7 224 €</td><td class='n'>4.0 j</td><td class='n'>4 mois</td></tr>
+<tr><td>Rédaction du reporting hebdomadaire de service<br><span style='color:var(--doux);font-size:12px'>Direction</span></td><td class='n'>115 h</td><td class='n'>71/100</td><td class='n'>4 318 €</td><td class='n'>3.0 j</td><td class='n'>5 mois</td></tr>
+<tr><td>Extraction mensuelle des indicateurs de qualité<br><span style='color:var(--doux);font-size:12px'>Qualité</span></td><td class='n'>55 h</td><td class='n'>98/100</td><td class='n'>2 006 €</td><td class='n'>1.5 j</td><td class='n'>6 mois</td></tr>
+</tbody></table></div>
+<div class="detail"><div class="titre">Réponse aux questions clients de niveau 1</div><dl><dt>Ce que ça libère</dt><dd>748 h par an (28 424 €), pour 4.0 jour(s) de mise en œuvre.</dd></dl></div>
+<div class="detail"><div class="titre">Rapprochement des factures transporteurs</div><dl><dt>Ce que ça libère</dt><dd>217 h par an (10 000 €), pour 4.0 jour(s) de mise en œuvre.</dd></dl></div>
+<div class="detail"><div class="titre">Tri et affectation des tickets entrants</div><dl><dt>Ce que ça libère</dt><dd>190 h par an (7 224 €), pour 4.0 jour(s) de mise en œuvre.</dd></dl></div>
+<div class="detail"><div class="titre">Rédaction du reporting hebdomadaire de service</div><dl><dt>Ce que ça libère</dt><dd>70 h par an (4 318 €), pour 3.0 jour(s) de mise en œuvre.</dd></dl></div>
+<div class="detail"><div class="titre">Extraction mensuelle des indicateurs de qualité</div><dl><dt>Ce que ça libère</dt><dd>46 h par an (2 006 €), pour 1.5 jour(s) de mise en œuvre.</dd></dl></div>
+</div>
+<div class="vague v2">
+<h3>Vague 2 — à instruire</h3>
+<p class="sous">Rentable en moins de 18 mois, mais demande une décision : un accès, un budget, ou une règle métier à trancher avant de commencer.</p>
+<div class="tableau"><table>
+<thead><tr><th>Tâche</th><th class="n">Temps / an</th><th class="n">Score</th>
+<th class="n">Gain / an</th><th class="n">Effort</th><th class="n">Retour</th></tr></thead>
+<tbody>
+<tr><td>Relance des factures impayées<br><span style='color:var(--doux);font-size:12px'>Comptabilité</span></td><td class='n'>138 h</td><td class='n'>69/100</td><td class='n'>3 871 €</td><td class='n'>4.0 j</td><td class='n'>8 mois</td></tr>
+<tr><td>Ressaisie des commandes reçues par mail dans l&#x27;ERP<br><span style='color:var(--doux);font-size:12px'>ADV</span></td><td class='n'>264 h</td><td class='n'>64/100</td><td class='n'>6 008 €</td><td class='n'>7.0 j</td><td class='n'>9 mois</td></tr>
+<tr><td>Contrôle de conformité des fiches produit<br><span style='color:var(--doux);font-size:12px'>Marketing</span></td><td class='n'>138 h</td><td class='n'>75/100</td><td class='n'>3 519 €</td><td class='n'>5.0 j</td><td class='n'>11 mois</td></tr>
+<tr><td>Qualification des candidatures reçues<br><span style='color:var(--doux);font-size:12px'>RH</span></td><td class='n'>123 h</td><td class='n'>54/100</td><td class='n'>2 802 €</td><td class='n'>5.5 j</td><td class='n'>15 mois</td></tr>
+<tr><td>Vérification des notes de frais<br><span style='color:var(--doux);font-size:12px'>Comptabilité</span></td><td class='n'>115 h</td><td class='n'>58/100</td><td class='n'>2 698 €</td><td class='n'>5.5 j</td><td class='n'>16 mois</td></tr>
+</tbody></table></div>
+
+</div>
+<div class="vague v3">
+<h3>Vague 3 — à ne pas faire pour l&#x27;instant</h3>
+<p class="sous">Techniquement possible, économiquement non. Les inscrire ici évite d&#x27;y revenir tous les six mois — et de les confondre avec les précédentes.</p>
+<div class="tableau"><table>
+<thead><tr><th>Tâche</th><th class="n">Temps / an</th><th class="n">Score</th>
+<th class="n">Gain / an</th><th class="n">Effort</th><th class="n">Retour</th></tr></thead>
+<tbody>
+<tr><td>Mise à jour du planning des interventions<br><span style='color:var(--doux);font-size:12px'>Exploitation</span></td><td class='n'>183 h</td><td class='n'>32/100</td><td class='n'>2 330 €</td><td class='n'>6.0 j</td><td class='n'>20 mois</td></tr>
+<tr><td>Recopie des relevés de production dans le fichier de suivi<br><span style='color:var(--doux);font-size:12px'>Production</span></td><td class='n'>165 h</td><td class='n'>50/100</td><td class='n'>2 665 €</td><td class='n'>9.0 j</td><td class='n'>26 mois</td></tr>
+<tr><td>Compte rendu des réunions de comité<br><span style='color:var(--doux);font-size:12px'>Direction</span></td><td class='n'>69 h</td><td class='n'>49/100</td><td class='n'>1 773 €</td><td class='n'>7.0 j</td><td class='n'>31 mois</td></tr>
+<tr><td>Préparation des dossiers d&#x27;appel d&#x27;offres<br><span style='color:var(--doux);font-size:12px'>Achats</span></td><td class='n'>88 h</td><td class='n'>30/100</td><td class='n'>1 234 €</td><td class='n'>8.0 j</td><td class='n'>51 mois</td></tr>
+<tr><td>Veille réglementaire et diffusion<br><span style='color:var(--doux);font-size:12px'>Qualité</span></td><td class='n'>92 h</td><td class='n'>21/100</td><td class='n'>914 €</td><td class='n'>8.0 j</td><td class='n'>68 mois</td></tr>
+</tbody></table></div>
+
+</div>
+
+<h2>Comment ces chiffres sont obtenus</h2>
+<p>Le temps annuel est déclaratif : fréquence × occurrences × durée unitaire × personnes
+mobilisées, valorisé au coût horaire chargé fourni. Chaque tâche reçoit cinq notes de 1 à 5
+— répétitivité, structuration des données, part de jugement, criticité de l'erreur, accès
+technique au système d'information — combinées en un score d'automatisabilité sur 100.</p>
+<p>Le gain attendu vaut ce score multiplié par un plafond de 85%. L'effort
+de mise en œuvre part d'une journée de socle et s'alourdit de ce qui manque : données mal
+structurées, absence d'accès technique, criticité qui impose des contrôles. Le classement
+se fait au rendement — euros gagnés par jour de mise en œuvre — et non au gain brut, parce
+qu'une équipe ne manque pas d'idées, elle manque de jours.</p>
+<div class="note"><strong>Ce que cet audit n'est pas.</strong> Les durées viennent de ce que
+vos équipes déclarent, pas d'une mesure. Les écarts se voient au premier chantier, et c'est
+à ce moment qu'on recale. Ces chiffres servent à classer et à décider par quoi commencer —
+pas à être inscrits tels quels dans un budget.</div>
+
+<footer>Audit réalisé par JMprojectlab · 2026-09-10 · Document confidentiel,
+établi pour Groupe Exemple (fictif).</footer>
+</div>
+</body>
+</html>

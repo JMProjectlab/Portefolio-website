@@ -462,11 +462,11 @@ input:focus, textarea:focus { outline: none; border-color: var(--blue); box-shad
 .apercu-titre { font-size: 19px; font-weight: 600; letter-spacing: -0.018em; }
 .apercu-meta { font-size: 13px; color: var(--ink-2); margin: 4px 0 20px; }
 .apercu-defile { overflow-x: auto; }
-.apercu table { border-collapse: collapse; width: 100%; font-size: 15px; }
-.apercu th, .apercu td { padding: 9px 10px; text-align: left; border-bottom: 1px solid var(--hairline); }
-.apercu th { font-size: 12px; font-weight: 500; color: var(--ink-2); letter-spacing: 0; white-space: nowrap; }
-.apercu td.num, .apercu th.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
-.apercu tr:last-child td { border-bottom: none; }
+.apercu-defile table { border-collapse: collapse; width: 100%; font-size: 15px; }
+.apercu-defile th, .apercu-defile td { padding: 9px 10px; text-align: left; border-bottom: 1px solid var(--hairline); }
+.apercu-defile th { font-size: 12px; font-weight: 500; color: var(--ink-2); letter-spacing: 0; white-space: nowrap; }
+.apercu-defile td.num, .apercu-defile th.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.apercu-defile tr:last-child td { border-bottom: none; }
 
 .avertissement {
   max-width: 760px;
@@ -489,7 +489,128 @@ input:focus, textarea:focus { outline: none; border-color: var(--blue); box-shad
 .prose p:first-child { margin-top: 0; }
 .centre { text-align: center; }
 
+/* ---------- Questionnaire d'estimation ---------- */
+
+.form-section-large { max-width: 760px; }
+
+.confidentialite {
+  background: var(--bg-alt);
+  border-radius: var(--radius-sm);
+  padding: 16px 20px;
+  font-size: 15px;
+  color: var(--ink-2);
+  margin: 0 0 36px;
+  max-width: none;
+}
+.confidentialite strong { color: var(--ink); font-weight: 600; }
+
+.bloc-reglages {
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius);
+  padding: 24px 26px;
+  margin-bottom: 44px;
+}
+.bloc-reglages .form-row { max-width: 320px; }
+
+.titre-liste { font-size: 26px; margin-bottom: 8px; }
+.aide { font-size: 14px; color: var(--ink-2); margin: 6px 0 0; }
+.aide-large { max-width: 52em; margin-bottom: 24px; }
+.centre { text-align: center; }
+
+/* Une tâche = une carte. Le cadre sert à ne pas perdre le fil quand il y en a
+   huit les unes sous les autres. */
+.tache-carte {
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius);
+  padding: 26px 28px;
+  margin-bottom: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.tache-tete { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; }
+.tache-tete h3 { font-size: 15px; letter-spacing: 0.02em; text-transform: uppercase; color: var(--ink-2); font-weight: 600; }
+
+.lien-discret {
+  background: none; border: none; padding: 0;
+  font-family: inherit; font-size: 14px; color: var(--blue);
+  cursor: pointer;
+}
+.lien-discret:hover { text-decoration: underline; }
+
+.champs-grille {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 170px), 1fr));
+  gap: 16px;
+}
+
+/* Les listes déroulantes n'existaient pas dans la feuille : on les aligne sur
+   les champs texte plutôt que de laisser le rendu natif du navigateur. */
+select {
+  background: transparent;
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-sm);
+  padding: 12px 15px;
+  color: var(--ink);
+  font-family: inherit;
+  font-size: 16px;
+  letter-spacing: -0.012em;
+  width: 100%;
+}
+select:focus { outline: none; border-color: var(--blue); box-shadow: 0 0 0 3px color-mix(in srgb, var(--blue) 18%, transparent); }
+
+.actions-formulaire {
+  display: flex; flex-wrap: wrap; gap: 12px;
+  align-items: center; margin-top: 28px;
+}
+.actions-resultat { justify-content: center; margin-top: 40px; }
+.btn-secondaire {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--hairline);
+}
+.btn-secondaire:hover { background: var(--bg-alt); }
+.btn:disabled { opacity: 0.4; cursor: not-allowed; }
+.btn:disabled:hover { background: var(--blue); }
+.btn-secondaire:disabled:hover { background: transparent; }
+
+.message-formulaire { min-height: 1.4em; margin: 14px 0 0; font-size: 15px; color: var(--ink-2); }
+.message-alerte { color: var(--blue); font-weight: 500; }
+
+/* ---------- Résultat de l'estimation ---------- */
+
+.carte-chiffre {
+  background: var(--surface);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius);
+  padding: 22px 24px;
+  text-align: center;
+}
+.carte-chiffre.fort { border-color: var(--blue); }
+.carte-chiffre .k {
+  margin: 0; font-size: 11px; font-weight: 600; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--ink-2);
+}
+.carte-chiffre .v { margin: 10px 0 0; font-size: 30px; font-weight: 600; letter-spacing: -0.025em; }
+.carte-chiffre .n { margin: 6px 0 0; font-size: 14px; color: var(--ink-2); }
+
+.vague-bloc {
+  border-left: 3px solid var(--blue);
+  padding-left: 20px;
+  margin: 36px 0;
+}
+.vague-bloc.v2 { border-left-color: var(--ink-2); }
+.vague-bloc.v3 { border-left-color: var(--hairline); }
+.vague-bloc h3 { font-size: 19px; }
+.vague-bloc .sous { margin: 6px 0 14px; color: var(--ink-2); font-size: 15px; }
+
+@media (max-width: 600px) {
+  .tache-carte { padding: 20px 18px; }
+  .actions-formulaire .btn { width: 100%; }
+}
+
 /* ---------- Pages légales ---------- */
+
 
 
 .legal { padding: 72px 0 96px; }

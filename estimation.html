@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Estimez votre gisement — JMprojectlab</title>
+<meta name="description" content="Décrivez vos tâches répétitives et obtenez tout de suite ce qu'elles coûtent par an, ce que l'IA peut en récupérer et en combien de mois c'est remboursé. Sans inscription, sans envoi de données.">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+<link rel="icon" type="image/svg+xml" href="brand/logo-mark-ink.svg">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo" aria-label="JMprojectlab, accueil">
+      <img class="logo-light" src="brand/logo-mark-ink.svg" alt="">
+      <img class="logo-dark" src="brand/logo-mark-white.svg" alt="">
+      <span class="logo-word">projectlab</span>
+    </a>
+    <nav>
+      <a href="index.html#apps">Applications</a>
+      <a href="gisement.html">Diagnostic Gisement</a>
+      <a href="estimation.html">Estimation</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="container">
+      <h1>Combien vous coûtent<br>vos tâches répétitives ?</h1>
+      <p class="lead">
+        Décrivez-en quelques-unes. Vous obtenez tout de suite ce qu'elles pèsent
+        sur une année, ce qu'une automatisation peut en reprendre, et en combien
+        de mois c'est remboursé.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container form-section-large">
+
+      <p class="confidentialite">
+        <strong>Vos réponses ne quittent pas votre navigateur.</strong> Le calcul se
+        fait sur votre appareil, rien n'est envoyé ni enregistré nulle part. Vous
+        pouvez fermer la page : il ne restera rien. Seule exception, si vous la
+        demandez : la notation assistée envoie les descriptions de tâches — et
+        rien d'autre — le temps de l'appel, sans les conserver.
+      </p>
+
+      <div class="bloc-reglages">
+        <div class="form-row">
+          <label for="cout-horaire">Coût horaire chargé moyen (€)</label>
+          <input type="number" id="cout-horaire" value="45" min="1" max="500" step="1">
+          <p class="aide">Salaire brut, charges et frais de structure compris. 45 € est un ordre de grandeur courant pour un poste administratif.</p>
+        </div>
+      </div>
+
+      <h2 class="titre-liste">Vos tâches</h2>
+      <p class="aide aide-large">
+        Commencez par celles que vos équipes détestent : ce sont presque toujours
+        les plus rentables à automatiser. Jusqu'à huit tâches ici.
+      </p>
+
+      <div id="liste-taches"></div>
+
+      <div id="bloc-ia" class="bloc-ia" hidden>
+        <h3>Laisser l'IA noter d'après vos descriptions</h3>
+        <p>
+          Les cinq questions par tâche sont les plus difficiles à trancher quand on
+          n'a pas l'habitude. Décrivez la tâche en une phrase et Claude propose les
+          notes, une approche technique et le risque principal — <strong>vous gardez
+          la main :</strong> tout reste modifiable ensuite.
+        </p>
+        <div id="turnstile" class="turnstile"></div>
+        <button type="button" id="noter-ia" class="btn btn-secondaire" disabled>Faire noter mes tâches</button>
+        <p id="message-ia" class="message-formulaire" role="status"></p>
+      </div>
+
+      <div class="actions-formulaire">
+        <button type="button" id="ajouter" class="btn btn-secondaire">Ajouter une tâche</button>
+        <button type="button" id="calculer" class="btn">Calculer mon gisement</button>
+      </div>
+      <p id="message" class="message-formulaire" role="status"></p>
+
+    </div>
+  </section>
+
+  <section id="resultat" class="section section-alt" hidden>
+    <div class="container-wide">
+      <div class="section-head">
+        <h2>Votre estimation</h2>
+        <p id="resume-tete"></p>
+      </div>
+
+      <div class="chiffres" id="chiffres"></div>
+
+      <div id="vagues"></div>
+
+      <div class="actions-formulaire actions-resultat">
+        <button type="button" id="telecharger" class="btn btn-secondaire">Télécharger mon inventaire (CSV)</button>
+        <a href="exemple-audit.html" class="btn btn-secondaire">Voir un audit complet</a>
+        <a href="gisement.html#contact" class="btn">Parler du diagnostic complet</a>
+      </div>
+      <p class="aide aide-large centre">
+        Le CSV contient vos réponses au format attendu par l'outil qui produit
+        l'audit complet. Gardez-le : il évite de tout ressaisir.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2>Ce que cette estimation n'est pas</h2>
+        <p>Elle sert à savoir s'il y a un sujet. Pas à décider d'un budget.</p>
+      </div>
+
+      <div class="prose">
+        <ul class="limites">
+          <li><strong>Les chiffres sont les vôtres, pas les miens.</strong> Le calcul est exact ; ce sont les durées que vous déclarez qui sont approximatives. Personne n'estime bien le temps qu'il passe sur une tâche qu'il fait tous les jours.</li>
+          <li><strong>Huit tâches ne font pas un inventaire.</strong> Un service en a entre vingt et quarante, et les plus coûteuses sont rarement celles auxquelles on pense en premier.</li>
+          <li><strong>Personne n'a vérifié vos réponses.</strong> Dans un diagnostic, chaque tâche prometteuse est revérifiée auprès de qui la fait — « j'ai noté 40 minutes, c'est ça ? ». C'est cette étape qui rend un chiffre opposable.</li>
+          <li><strong>Le contexte manque.</strong> Un changement d'outil en cours, une tâche politiquement intouchable, un logiciel qui fait déjà le travail : l'estimation ne peut pas le savoir, un auditeur si.</li>
+        </ul>
+
+        <p style="margin-top:32px">
+          Le modèle de calcul est le même que celui du diagnostic complet, et il est
+          public.
+          <a class="link-arrow" style="font-size:17px" href="https://github.com/JMProjectlab/Gisement/blob/main/docs/modele-de-calcul.md">Le voir en détail</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-links">
+      <a href="index.html">Accueil</a>
+      <a href="gisement.html">Diagnostic Gisement</a>
+      <a href="mentions-legales.html">Mentions légales</a>
+      <a href="confidentialite.html">Confidentialité</a>
+      <a href="mailto:jimmy.mieuzet@gmail.com">jimmy.mieuzet@gmail.com</a>
+    </div>
+    <p class="footer-copy">
+      Copyright &copy; <span id="year"></span> JMprojectlab. Estimation calculée dans
+      votre navigateur, avec le
+      <a href="https://github.com/JMProjectlab/Gisement">modèle public de Gisement</a>.
+    </p>
+  </div>
+</footer>
+
+<script src="gisement-modele.js"></script>
+<script src="estimation.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

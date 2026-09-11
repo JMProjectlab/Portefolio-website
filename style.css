@@ -104,9 +104,11 @@ img { max-width: 100%; }
   gap: 22px;
 }
 
-.logo { display: flex; align-items: center; gap: 7px; flex-shrink: 0; }
-.logo img, .logo svg { display: block; height: 26px; width: auto; }
-.logo-word { font-size: 17px; letter-spacing: -0.018em; }
+.logo { display: flex; align-items: center; flex-shrink: 0; }
+/* Le sceau porte seul : il monte a 32 px dans une barre de 48. En dessous de
+   48 px c'est la variante simplifiee qui sert — l'anneau de texte et le reseau
+   du sceau detaille s'empatent a cette taille. Voir brand/charte.html. */
+.logo img, .logo svg { display: block; height: 32px; width: auto; }
 /* Sélecteurs qualifiés par `img` : sinon `.logo img` ci-dessus, plus
    spécifique, réimposerait `display: block` aux deux versions à la fois. */
 .logo img.logo-dark { display: none; }

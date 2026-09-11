@@ -12,6 +12,20 @@ aucune police n'est embarquée, tout suit la pile système.
 Conséquence : modifier le dessin du sceau se fait dans les SVG, jamais dans
 les PNG.
 
+## Deux sceaux, deux usages
+
+| Fichier | Quand |
+|---|---|
+| `logo-mark*.svg` | 48 px et au-dessus : le sceau complet, anneau de texte et réseau |
+| `logo-mark-small-*.svg` | sous 48 px : anneau unique, monogramme seul |
+
+La variante simplifiée n'existe qu'en encre et en blanc, les deux seules
+couleurs où le sceau travaille en petit : en-tête du site et favicon. Elle n'a
+pas de déclinaison bleue, parce qu'elle ne sert jamais en grand.
+
+**Les deux doivent bouger ensemble.** Si le monogramme change dans l'un, il
+change dans l'autre. C'est le prix d'avoir deux dessins.
+
 ## Les PNG sont générés
 
 `favicon-16.png`, `favicon-32.png` et `apple-touch-icon.png` ne sont pas
@@ -20,8 +34,8 @@ savent pas afficher une icône SVG.
 
 | Fichier | Source | Fond |
 |---|---|---|
-| `favicon-16.png` | `logo-mark-ink.svg` | transparent |
-| `favicon-32.png` | `logo-mark-ink.svg` | transparent |
+| `favicon-16.png` | `logo-mark-small-ink.svg` | transparent |
+| `favicon-32.png` | `logo-mark-small-ink.svg` | transparent |
 | `apple-touch-icon.png` | `logo-icon-tile.svg`, **coins non arrondis** | bleu plein |
 
 L'arrondi de l'icône Apple est retiré volontairement : iOS applique son propre
